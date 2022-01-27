@@ -7,30 +7,20 @@ package proyectofinal;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author eduar
  */
-public class GestorEstudiantes extends javax.swing.JFrame {
-    DefaultTableModel modelo = new DefaultTableModel();
-    
-    /**
-     * Creates new form Estudiantes
-     */
-    Integer  fila;
+public class Gestorxd extends javax.swing.JFrame {
 
     /**
-     * Creates new form GestorEstudiantes
+     * Creates new form Gestorxd
      */
-    public GestorEstudiantes() {
+    public Gestorxd() {
         initComponents();
-        cargarTablaEstudiantes();
     }
     public void LimpiarTextos(){
     jTxtCedula.setText("");
@@ -150,34 +140,6 @@ public class GestorEstudiantes extends javax.swing.JFrame {
     }
     
 }
-    public void cargarTablaEstudiantes()    {
-        try {
-            String[] titulos = { "cedula","apellido","nombre","correo","contraseña","nota"};
-            String [] registros = new String[5];
-            modelo = new DefaultTableModel(null,titulos);
-            connexion cc = new connexion();
-            Connection cn = cc.conectar();
-            String sql="";
-            sql="select * from estudiantes";
-            Statement psd = cn.createStatement();
-            ResultSet rs = psd.executeQuery(sql);
-            while(rs.next()){
-                registros[0]=rs.getString("cedula");
-                registros[1]=rs.getString("nombre");
-                registros[2]=rs.getString("apellido");
-                registros[3]=rs.getString("correo");
-                registros[4]=rs.getString("contraseña");
-                registros[5]=rs.getString("Nota");
-                modelo.addRow(registros);
-            }
-            jTblEstudiantes.setModel(modelo);
-            
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-            
-             }
-        
-}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -201,6 +163,9 @@ public class GestorEstudiantes extends javax.swing.JFrame {
         jTxtCorreo = new javax.swing.JTextField();
         jTxtContraseña = new javax.swing.JTextField();
         jTxtNota = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTblEstudiantes = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         BtnNuevo = new javax.swing.JButton();
         BtnGuardar = new javax.swing.JButton();
@@ -209,9 +174,6 @@ public class GestorEstudiantes extends javax.swing.JFrame {
         BtnCancelar = new javax.swing.JButton();
         BtnSalir = new javax.swing.JButton();
         BtnEliminar = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTblEstudiantes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -303,6 +265,36 @@ public class GestorEstudiantes extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jTblEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTblEstudiantes);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(167, 167, 167))
+        );
+
         BtnNuevo.setText("NUEVO");
 
         BtnGuardar.setText("GUARDAR");
@@ -358,36 +350,6 @@ public class GestorEstudiantes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTblEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jTblEstudiantes);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -406,7 +368,7 @@ public class GestorEstudiantes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(183, 183, 183))
         );
@@ -423,7 +385,7 @@ public class GestorEstudiantes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTxtNombreActionPerformed
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
-    InsertarDato();
+        InsertarDato();
         // TODO add your handling code here:
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
@@ -444,20 +406,20 @@ public class GestorEstudiantes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GestorEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gestorxd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GestorEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gestorxd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GestorEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gestorxd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GestorEstudiantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Gestorxd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GestorEstudiantes().setVisible(true);
+                new Gestorxd().setVisible(true);
             }
         });
     }

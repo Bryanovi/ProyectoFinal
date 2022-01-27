@@ -15,6 +15,8 @@ public class ProyectoFinal {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        connexion url = new connexion();
+        url.conectar();
     }
     
 }
