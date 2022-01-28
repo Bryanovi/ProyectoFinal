@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
-
 /**
  *
  * @author USUARIO
@@ -26,10 +25,10 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
     }
+    
     String usu = null, con = null;
     public void ValidarEstudiante() {
         try {
-            
             String[] registros = new String[2];
             Conexion cc = new Conexion();
             Connection cn = cc.conectar();
@@ -49,6 +48,36 @@ public class Login extends javax.swing.JFrame {
                 }
                 else {
                     JOptionPane.showMessageDialog(rootPane, "No existe este Estudiante");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            
+    }
+    
+    public void ValidarMaestro() {
+        try {
+            String[] registros = new String[2];
+            Conexion cc = new Conexion();
+            Connection cn = cc.conectar();
+            String sql = "";
+            sql = "select correo, contraseña from tablamaestros";
+            Statement psd = cn.createStatement();
+            ResultSet rs = psd.executeQuery(sql);
+            while (rs.next()) {
+                registros[0] = rs.getString("correo");
+                registros[1] = rs.getString("contraseña");
+                if (jTextUsuario.getText().equals(registros[0]) && jTextContrasena.getText().equals(registros[1])) {
+                    usu = registros[0];
+                    con = registros[1];
+                    Maestros m = new Maestros();
+                    m.setVisible(true);
+                    dispose();
+                }
+                else {
+                    JOptionPane.showMessageDialog(rootPane, "No existe este Maestro");
                 }
             }
         } catch (SQLException ex) {
@@ -79,6 +108,7 @@ public class Login extends javax.swing.JFrame {
         jTextUsuario = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -126,10 +156,17 @@ public class Login extends javax.swing.JFrame {
                 .addGap(35, 35, 35))
         );
 
-        jButton1.setText("ACEPTAR");
+        jButton1.setText("Iniciar Estudiante");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Iniciar Maestro");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -137,16 +174,20 @@ public class Login extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(76, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addComponent(jButton1)
-                .addGap(67, 67, 67))
+                .addGap(65, 65, 65)
+                .addComponent(jButton2)
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jButton1)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -173,8 +214,8 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,7 +224,7 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(146, 146, 146))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -204,12 +245,15 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         ValidarEstudiante();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextUsuarioActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        ValidarMaestro();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +292,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
