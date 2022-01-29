@@ -23,7 +23,7 @@ import proyectofinal.Conexion;
  *
  * @author DELL
  */
-public class ReporteCedula extends javax.swing.JFrame {
+public class ReporteCedula extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form EstudiantesReporte
