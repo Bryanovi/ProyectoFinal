@@ -14,8 +14,15 @@ public class ProyectoFinal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+<<<<<<< HEAD
         Conexion cn = new Conexion();
         cn.conectar();
+=======
+
+        Conexion cn = new Conexion();
+        cn.conectar();
+
+>>>>>>> 0c4e43e393464063202318b55dc6959370c49f19
     }
     
 }
