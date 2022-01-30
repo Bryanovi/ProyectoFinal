@@ -11,11 +11,16 @@
      tablaestudiantes.`apellido` AS tablaestudiantes_apellido,
      tablaestudiantes.`correo` AS tablaestudiantes_correo,
      tablaestudiantes.`contraseña` AS tablaestudiantes_contraseña,
-     tablaestudiantes.`nota` AS tablaestudiantes_nota
+     tablaestudiantes.`nota` AS tablaestudiantes_nota,
+     tablamaestros.`nombre` AS tablamaestros_nombre,
+     tablamaestros.`apellido` AS tablamaestros_apellido,
+     tablamaestros.`materia` AS tablamaestros_materia,
+     tablamaestros.`cedula` AS tablamaestros_cedula
 FROM
-     `tablaestudiantes` tablaestudiantes
-WHERE 
-tablaestudiantes.`cedula` =$P{CED}]]>
+     `tablaestudiantes` tablaestudiantes,
+     `tablamaestros` tablamaestros
+WHERE
+     tablaestudiantes.`cedula` = $P{CED}]]>
 	</queryString>
 	<field name="tablaestudiantes_cedula" class="java.lang.String"/>
 	<field name="tablaestudiantes_nombre" class="java.lang.String"/>
@@ -23,41 +28,79 @@ tablaestudiantes.`cedula` =$P{CED}]]>
 	<field name="tablaestudiantes_correo" class="java.lang.String"/>
 	<field name="tablaestudiantes_contraseña" class="java.lang.String"/>
 	<field name="tablaestudiantes_nota" class="java.lang.String"/>
+	<field name="tablamaestros_nombre" class="java.lang.String"/>
+	<field name="tablamaestros_apellido" class="java.lang.String"/>
+	<field name="tablamaestros_materia" class="java.lang.String"/>
+	<field name="tablamaestros_cedula" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="201" y="24" width="148" height="25"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[REPORTE FINAL]]></text>
+			</staticText>
+		</band>
 	</title>
 	<pageHeader>
-		<band height="35" splitType="Stretch"/>
+		<band height="44">
+			<staticText>
+				<reportElement x="24" y="3" width="85" height="30"/>
+				<textElement/>
+				<text><![CDATA[MAESTRO ENCARGADO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="124" y="3" width="50" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tablamaestros_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="174" y="3" width="52" height="23"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tablamaestros_apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{tablamaestros_materia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="0" width="51" height="20"/>
+				<textElement/>
+				<text><![CDATA[MATERIA]]></text>
+			</staticText>
+		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<staticText>
 				<reportElement x="24" y="2" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[tablaestudiantes_cedula]]></text>
+				<text><![CDATA[CEDULA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="153" y="2" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[tablaestudiantes_nombre]]></text>
+				<text><![CDATA[NOMBRE]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="283" y="2" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[tablaestudiantes_apellido]]></text>
+				<text><![CDATA[APELLIDO]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="428" y="2" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[tablaestudiantes_nota]]></text>
+				<text><![CDATA[NOTA FINAL]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="47" splitType="Stretch">
+		<band height="28" splitType="Stretch">
 			<textField>
 				<reportElement x="24" y="0" width="100" height="20"/>
 				<textElement/>
@@ -74,7 +117,7 @@ tablaestudiantes.`cedula` =$P{CED}]]>
 				<textFieldExpression><![CDATA[$F{tablaestudiantes_apellido}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="428" y="11" width="100" height="20"/>
+				<reportElement x="428" y="0" width="100" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{tablaestudiantes_nota}]]></textFieldExpression>
 			</textField>
