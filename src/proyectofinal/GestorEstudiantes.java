@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author eduar
  */
-public class GestorEstudiantes extends javax.swing.JInternalFrame {
+public class GestorEstudiantes extends javax.swing.JFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     /**
