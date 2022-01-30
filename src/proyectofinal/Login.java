@@ -46,7 +46,7 @@ public class Login extends javax.swing.JFrame {
             }                                   
             
             if (jTextUsuario.getText().equals(usu) && jTextContraseña.getText().equals(con)) {
-                GestorEstudiantes e = new GestorEstudiantes();
+                Estudiantes e = new Estudiantes();
                 e.setVisible(true);
                 dispose();
             }else {
