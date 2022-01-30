@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2022 a las 02:38:55
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.0.13
+-- Tiempo de generación: 30-01-2022 a las 19:02:06
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 7.3.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,8 +33,18 @@ CREATE TABLE `tablaestudiantes` (
   `apellido` varchar(15) NOT NULL,
   `correo` varchar(20) NOT NULL,
   `contraseña` varchar(20) NOT NULL,
-  `nota` int(11) NOT NULL
+  `nota` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `tablaestudiantes`
+--
+
+INSERT INTO `tablaestudiantes` (`cedula`, `nombre`, `apellido`, `correo`, `contraseña`, `nota`) VALUES
+('1901', 'Pablo', 'Paredes', 'pparedes@uta', 'pparedes', 'S/N'),
+('1902', 'Juan', 'Carrazco', 'jcarrazco@uta', 'jcarrazco', 'Aprobado'),
+('1903', 'Adan', 'Villafuerte', 'avillafuerte@uta', 'avillafuerte', 'Reprobado'),
+('1904', 'Marco', 'Diaz', 'mdiaz@uta', 'mdiaz', 'Aprobado');
 
 -- --------------------------------------------------------
 
@@ -57,6 +67,16 @@ CREATE TABLE `tablamaestros` (
 
 INSERT INTO `tablamaestros` (`cedula`, `nombre`, `apellido`, `correo`, `contraseña`, `materia`) VALUES
 ('1801', 'Carlos', 'Perez', 'cperez@uta', 'cperez', 'Matematicas');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `tablaestudiantes`
+--
+ALTER TABLE `tablaestudiantes`
+  ADD PRIMARY KEY (`cedula`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
