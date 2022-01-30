@@ -19,7 +19,7 @@ public class Conexion {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost/basemanejo","root","");
-            JOptionPane.showMessageDialog(null, "Felicitaciones estas conectado" );
+            //JOptionPane.showMessageDialog(null, "Felicitaciones estas conectado" );
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error...." + ex);
         }
