@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author eduar
  */
-public class GestorEstudiantes extends javax.swing.JFrame {
+public class GestorEstudiantes extends javax.swing.JInternalFrame {
     DefaultTableModel modelo = new DefaultTableModel();
     
     /**
@@ -187,7 +187,7 @@ public void Calificar(){
         });
  }
     public void InsertarDato(){
-    String valorNota ="S/N";
+    String valorNota ="Sin Nota";
     if(jTxtCedula.getText().isEmpty() || jTxtCedula.getText()=="")
     {
         JOptionPane.showMessageDialog(null,"Debe ingresar una cedula");

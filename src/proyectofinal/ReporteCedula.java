@@ -23,7 +23,7 @@ import net.sf.jasperreports.view.JRViewer;
  *
  * @author DELL
  */
-public class ReporteCedula extends javax.swing.JFrame {
+public class ReporteCedula extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form ReporteCedula
@@ -62,11 +62,11 @@ public class ReporteCedula extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGap(0, 349, Short.MAX_VALUE)
         );
 
         jLabel1.setText("Ingrese la cédula: ");
@@ -76,18 +76,17 @@ public class ReporteCedula extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1)
-                        .addGap(59, 59, 59)
-                        .addComponent(jtxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(jbtnReporte))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(59, 59, 59)
+                .addComponent(jtxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jbtnReporte)
+                .addContainerGap(270, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,8 +96,8 @@ public class ReporteCedula extends javax.swing.JFrame {
                     .addComponent(jtxtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtnReporte)
                     .addComponent(jLabel1))
-                .addGap(41, 41, 41)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -109,13 +108,13 @@ public class ReporteCedula extends javax.swing.JFrame {
         try {
             Conexion cc= new Conexion();
             Map CED= new HashMap();
-            CED.put("ced",jtxtCedula.getText());
+            CED.put("CED",jtxtCedula.getText());
             jPanel1.removeAll();
             jPanel1.repaint();
             jPanel1.revalidate();
-            JasperDesign designacion = JRXmlLoader.load("C:/UsersDELL/OneDrive/Documentos/NetBeansProjects/ProyectoFinal/src/Reporte.jrxml");
+            JasperDesign designacion = JRXmlLoader.load("C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/reportesEstudiantes/reporteoEstudiantes.jrxml");
             JasperReport reporte=JasperCompileManager.compileReport(designacion);
-            JasperPrint Print = JasperFillManager.fillReport(reporte,null,cc.conectar());
+            JasperPrint Print = JasperFillManager.fillReport(reporte,CED,cc.conectar());
             JRViewer v = new JRViewer(Print);
             jPanel1.setLayout(new BorderLayout());
             jPanel1.add(v);
