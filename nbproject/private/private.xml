@@ -2,13 +2,22 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> maestro
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/ProyectoFinal.java</file>
             <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/GestorEstudiantes.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Gestorxd.java</file>
         </group>
     </open-files>
 =======
 >>>>>>> 81deb298b519d34845b5f769c074baadfa6fdc94
+=======
+            <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Conexion.java</file>
+        </group>
+    </open-files>
+>>>>>>> maestro
 </project-private>
