@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+<<<<<<< HEAD
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/ProyectoFinal.java</file>
-=======
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Estudiantes.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Conexion.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/ProyectoFinal.java</file>
             <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Login.java</file>
-            <file>file:/C:/Users/USUARIO/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Maestros.java</file>
->>>>>>> PMYC-2-cambio-de-agregacion-de-boton
         </group>
     </open-files>
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> maestro
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/ProyectoFinal.java</file>
+            <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/GestorEstudiantes.java</file>
+<<<<<<< HEAD
+            <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Gestorxd.java</file>
+        </group>
+    </open-files>
+=======
+>>>>>>> 81deb298b519d34845b5f769c074baadfa6fdc94
+=======
+            <file>file:/C:/Users/eduar/Documents/NetBeansProjects/ProyectoFinal/src/proyectofinal/Conexion.java</file>
+        </group>
+    </open-files>
+>>>>>>> maestro
+>>>>>>> 3d447cb85c954841072bb1f20a36396d4cf04e27
 </project-private>
