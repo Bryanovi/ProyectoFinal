@@ -57,7 +57,7 @@ public class Principal extends javax.swing.JFrame {
             .addGap(0, 699, Short.MAX_VALUE)
         );
 
-        jMenu3.setText("Menú");
+        jMenu3.setText("Estudiantes");
 
         jMenuItem1.setText("Reporte de Estudiantes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {

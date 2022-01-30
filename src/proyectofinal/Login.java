@@ -73,7 +73,7 @@ public class Login extends javax.swing.JFrame {
                 if (jTextUsuario.getText().equals(registros[0]) && jTextContraseña.getText().equals(registros[1])) {
                     usu = registros[0];
                     con = registros[1];
-                    ReporteCedula m = new ReporteCedula();
+                    VenatanaPrincipal m = new VenatanaPrincipal();
                     m.setVisible(true);
                     dispose();
                 }
