@@ -42,6 +42,7 @@ public class Login extends javax.swing.JFrame {
                 if (jTextUsuario.getText().equals(registros[0]) && jTextContraseña.getText().equals(registros[1])) {
                     usu = registros[0];
                     con = registros[1];
+<<<<<<< HEAD
                 }else {
                     JOptionPane.showMessageDialog(rootPane, "No existe este Estudiante");
                 }    
@@ -51,6 +52,17 @@ public class Login extends javax.swing.JFrame {
                     e.setVisible(true);
                     dispose();
             }
+=======
+                }                           
+            }
+            if (jTextUsuario.getText().equals(usu) && jTextContraseña.getText().equals(con)) {
+                Estudiantes e = new Estudiantes();
+                e.setVisible(true);
+                dispose();
+            }else {
+                 JOptionPane.showMessageDialog(rootPane, "No existe este Estudiante");
+            }    
+>>>>>>> PMYC-8-reparar-codigo-del-login
             
         } catch (SQLException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
